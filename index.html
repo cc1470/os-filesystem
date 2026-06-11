@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>智能文件系统 · K-means FAT 模拟</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);min-height:100vh;color:#e2e8f0}
+.login-wrap{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+.login-card{background:rgba(255,255,255,0.04);backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:40px 36px;width:100%;max-width:400px}
+.login-card h1{text-align:center;font-size:26px;font-weight:700;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.login-card .sub{text-align:center;color:rgba(255,255,255,.55);font-size:13px;margin:4px 0 28px}
+.form-group{margin-bottom:16px}.form-group label{display:block;font-size:13px;color:rgba(255,255,255,.7);margin-bottom:4px}
+.form-group input{width:100%;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.12);
+  background:#fff;color:#111;font-size:14px;outline:none;transition:border-color .2s}
+.form-group input:focus{border-color:#ef4444;box-shadow:0 0 0 3px rgba(239,68,68,.2)}
+.login-btn{width:100%;padding:10px 0;border:none;border-radius:8px;
+  background:linear-gradient(90deg,#ef4444,#dc2626);color:#fff;font-size:15px;font-weight:600;cursor:pointer}
+.login-btn:hover{opacity:.9}
+.login-error{background:rgba(239,68,68,.15);color:#fca5a5;padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:16px;display:none}
+.login-footer{text-align:center;color:rgba(255,255,255,.3);font-size:11px;margin-top:20px}
+.dash{padding:20px 24px 40px;max-width:1400px;margin:0 auto}
+.dash-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:20px}
+.dash-header h1{font-size:22px;font-weight:700;color:#fff}
+.user-info{font-size:13px;color:rgba(255,255,255,.6)}
+.logout-btn{padding:5px 14px;border:1px solid rgba(255,255,255,.15);border-radius:6px;background:transparent;
+  color:rgba(255,255,255,.6);cursor:pointer;font-size:12px;transition:.2s}
+.logout-btn:hover{border-color:#ef4444;color:#ef4444}
+.btn-row{display:flex;gap:10px;align-items:center}
+.card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:20px;margin-bottom:16px}
+.card h2{font-size:15px;font-weight:600;color:rgba(255,255,255,.85);margin-bottom:4px}
+.card .desc{font-size:12px;color:rgba(255,255,255,.4);margin-bottom:12px}
+.table-wrap{overflow-x:auto}
+table.data{width:100%;border-collapse:collapse;font-size:13px}
+table.data th{text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.08);
+  color:rgba(255,255,255,.5);font-weight:500;white-space:nowrap}
+table.data td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.04);color:rgba(255,255,255,.7)}
+table.data tr:hover td{background:rgba(255,255,255,.03)}
+.tag{display:inline-block;padding:1px 8px;border-radius:4px;font-size:11px}
+.tag-hot{background:rgba(239,68,68,.15);color:#fca5a5}
+.tag-warm{background:rgba(245,158,11,.15);color:#fcd34d}
+.tag-cold{background:rgba(59,130,246,.15);color:#93c5fd}
+.tag-na{background:rgba(156,163,175,.15);color:#d1d5db}
+.refresh-btn{padding:8px 18px;border:none;border-radius:6px;
+  background:linear-gradient(90deg,#ef4444,#dc2626);color:#fff;font-size:13px;font-weight:500;cursor:pointer}
+.refresh-btn:hover{opacity:.85}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:768px){.grid-2{grid-template-columns:1fr}.dash-header{flex-direction:column;align-items:start}}
+</style></head>
+<body>
+<div class="login-wrap" id="loginPage">
+<div class="login-card">
+<h1>&#x1f4bd; &#x667a;&#x80fd;&#x6587;&#x4ef6;&#x7cfb;&#x7edf;</h1>
+<p class="sub">&#x57fa;&#x4e8e; K-means &#x7684; FAT &#x6a21;&#x62df; &#x00b7; &#x8bf7;&#x8f93;&#x5165;&#x8d26;&#x53f7;&#x767b;&#x5f55;</p>
+<div class="login-error" id="loginError">&#x274c; &#x7528;&#x6237;&#x540d;&#x6216;&#x5bc6;&#x7801;&#x9519;&#x8bef;</div>
+<div class="form-group"><label>&#x1f464; &#x7528;&#x6237;&#x540d;</label>
+<input type="text" id="loginUser" placeholder="user / root / user1"></div>
+<div class="form-group"><label>&#x1f511; &#x5bc6;&#x7801;</label>
+<input type="password" id="loginPass" placeholder="&#x8f93;&#x5165;&#x5bc6;&#x7801;"></div>
+<button class="login-btn" onclick="doLogin()">&#x1f680; &#x767b; &#x5f55;</button>
+<div class="login-footer">&#x9ed8;&#x8ba4;: user/123456 root/admin user1/20051002</div>
+</div></div>
+
+<div id="dash" class="dash" style="display:none">
+<div class="dash-header">
+<div><h1>&#x1f4bd; K-means FAT &#x667a;&#x80fd;&#x6587;&#x4ef6;&#x7cfb;&#x7edf;</h1>
+<div class="user-info" id="userDisplay"></div></div>
+<div class="btn-row">
+<button class="refresh-btn" onclick="loadAndRender()">&#x1f504; &#x5237;&#x65b0;</button>
+<button class="logout-btn" onclick="doLogout()">&#x1f6aa; &#x9000;&#x51fa;</button>
+</div></div>
+
+<div class="card">
+<h2>&#x1f4c4; FCB &#x5185;&#x5b58;&#x5feb;&#x7167;</h2>
+<p class="desc">&#x6587;&#x4ef6;&#x63a7;&#x5236;&#x5757;&#x5217;&#x8868; &#x00b7; AI &#x805a;&#x7c7b;&#x5206;&#x7ea7;</p>
+<div class="table-wrap"><table class="data"><thead><tr>
+<th>&#x6587;&#x4ef6;&#x540d;</th><th>&#x8d77;&#x59cb;&#x7c92;</th><th>&#x5927;&#x5c0f;(B)</th><th>&#x8bfb;&#x9891;&#x6b21;</th><th>&#x5199;&#x9891;&#x6b21;</th><th>AI&#x5206;&#x7ea7;</th>
+</tr></thead><tbody id="tableBody"></tbody></table></div></div>
+
+<div class="grid-2">
+<div class="card"><h2>&#x1f9e0; K-means &#x7279;&#x5f81;&#x805a;&#x7c7b;</h2><p class="desc">&#x8bfb;&#x5199;&#x9891;&#x6b21; &#x00b7; &#x6b27;&#x6c0f;&#x8ddd;&#x79bb; (K=3)</p><div id="chartScatter" style="height:380px"></div></div>
+<div class="card"><h2>&#x1f9f1; &#x78c1;&#x76d8;&#x7c92;&#x5206;&#x914d;</h2><p class="desc">&#x65b9;&#x5757;&#x9762;&#x79ef;=&#x5927;&#x5c0f; &#x00b7; &#x989c;&#x8272;=&#x805a;&#x7c7b;</p><div id="chartTreemap" style="height:380px"></div></div></div></div>
+
+<script>
+var USERS={user:{pw:"123456",role:"&#x666e;&#x901a;&#x7528;&#x6237;"},root:{pw:"admin",role:"&#x7ba1;&#x7406;&#x5458;"},user1:{pw:"20051002",role:"caiyuchen"}};
+var LABELS={0:"&#x51b7;&#x6570;&#x636e;",1:"&#x6e29;&#x6570;&#x636e;",2:"&#x70ed;&#x6570;&#x636e;"};
+var COLORS={0:"#3b82f6",1:"#f59e0b",2:"#ef4444"};
+function doLogin(){var u=document.getElementById("loginUser").value.trim();var p=document.getElementById("loginPass").value;
+  if(USERS[u]&&USERS[u].pw===p){localStorage.setItem("fs_user",u);showDash();}
+  else{document.getElementById("loginError").style.display="block";}}
+function doLogout(){localStorage.removeItem("fs_user");document.getElementById("dash").style.display="none";document.getElementById("loginPage").style.display="flex";}
+function showDash(){document.getElementById("loginPage").style.display="none";document.getElementById("dash").style.display="block";
+  var u=localStorage.getItem("fs_user");var r=USERS[u]?USERS[u].role:"";document.getElementById("userDisplay").innerHTML="&#x1f464; <b>"+u+"</b> ("+r+")";loadAndRender();}
+(function(){var u=localStorage.getItem("fs_user");if(u&&USERS[u])showDash();})();
+
+function loadAndRender(){fetch("data.json?_t="+Date.now()).then(function(r){return r.json()}).then(function(d){renderTable(d);renderCharts(d);}).catch(function(){setTimeout(loadAndRender,500);});}
+function renderTable(d){var tb=document.getElementById("tableBody");tb.innerHTML="";
+  d.forEach(function(r){var c=r.cluster;var l=LABELS[c]||"&#x672a;&#x5206;&#x6790;";var cls=c===2?"tag tag-hot":c===1?"tag tag-warm":c===0?"tag tag-cold":"tag tag-na";
+    tb.innerHTML+="<tr><td>"+r.file+"</td><td>"+r.pos+"</td><td>"+r.size+"</td><td>"+r.reads+"</td><td>"+r.writes+'</td><td><span class="'+cls+'">'+l+"</span></td></tr>";});}
+function renderCharts(d){
+  var by={};d.forEach(function(r){var c=r.cluster;if(!by[c])by[c]={x:[],y:[],t:[],s:[]};by[c].x.push(r.reads);by[c].y.push(r.writes);by[c].t.push(r.file);by[c].s.push(Math.sqrt(r.size)*3);});
+  var traces=[];for(var c in by){var g=by[c];var ci=parseInt(c);
+    traces.push({x:g.x,y:g.y,text:g.t,name:LABELS[ci]||"NA",marker:{size:g.s,color:COLORS[ci]||"#9ca3af",line:{color:"rgba(255,255,255,.3)",width:1}},type:"scatter",mode:"markers"});}
+  Plotly.newPlot("chartScatter",traces,
+    {paper_bgcolor:"rgba(0,0,0,0)",plot_bgcolor:"rgba(0,0,0,0)",font:{color:"rgba(255,255,255,.6)",size:11},
+    xaxis:{title:{text:"&#x8bfb;&#x53d6;&#x9891;&#x6b21;",font:{color:"rgba(255,255,255,.4)"}},gridcolor:"rgba(255,255,255,.06)",zerolinecolor:"rgba(255,255,255,.1)"},
+    yaxis:{title:{text:"&#x5199;&#x5165;&#x9891;&#x6b21;",font:{color:"rgba(255,255,255,.4)"}},gridcolor:"rgba(255,255,255,.06)",zerolinecolor:"rgba(255,255,255,.1)"},
+    margin:{t:10,r:10,b:40,l:50},legend:{font:{color:"rgba(255,255,255,.5)"},orientation:"h",y:1.05}},{responsive:true,displayModeBar:false});
+  var tl=["&#x6a21;&#x62df;&#x78c1;&#x76d8; 512KB","&#x70ed;&#x6570;&#x636e;","&#x6e29;&#x6570;&#x636e;","&#x51b7;&#x6570;&#x636e;"];var tp=["","","",""];var tv=[0,0,0,0];var tc=["#1e293b","#ef4444","#f59e0b","#3b82f6"];
+  d.forEach(function(r){var c=r.cluster;var p=c===2?"&#x70ed;&#x6570;&#x636e;":c===1?"&#x6e29;&#x6570;&#x636e;":c===0?"&#x51b7;&#x6570;&#x636e;":"";
+    tl.push(r.file);tp.push(p);tv.push(r.size);tc.push(COLORS[c]||"#9ca3af");});
+  Plotly.newPlot("chartTreemap",[{type:"treemap",labels:tl,parents:tp,values:tv,marker:{colors:tc},textinfo:"label+value+percent root",textfont:{color:"#fff",size:10},tiling:{packing:"squarify"}}],
+    {paper_bgcolor:"rgba(0,0,0,0)",margin:{t:10,r:10,b:10,l:10},font:{color:"rgba(255,255,255,.6)"}},{responsive:true,displayModeBar:false});}
+</script></body></html>

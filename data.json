@@ -1,0 +1,98 @@
+[
+  {
+    "file": "user_kernel.sys",
+    "pos": 0,
+    "size": 2647,
+    "reads": 78,
+    "writes": 93,
+    "cluster": 2
+  },
+  {
+    "file": "user_stdout.log",
+    "pos": 26522,
+    "size": 3935,
+    "reads": 17,
+    "writes": 3,
+    "cluster": 0
+  },
+  {
+    "file": "user_cache.db",
+    "pos": 12818,
+    "size": 3747,
+    "reads": 44,
+    "writes": 45,
+    "cluster": 1
+  },
+  {
+    "file": "user_avatar.png",
+    "pos": 2903,
+    "size": 4842,
+    "reads": 61,
+    "writes": 67,
+    "cluster": 2
+  },
+  {
+    "file": "user_index.html",
+    "pos": 30713,
+    "size": 4394,
+    "reads": 16,
+    "writes": 4,
+    "cluster": 0
+  },
+  {
+    "file": "user_report.docx",
+    "pos": 16821,
+    "size": 2973,
+    "reads": 45,
+    "writes": 29,
+    "cluster": 1
+  },
+  {
+    "file": "user_backup.bak",
+    "pos": 8001,
+    "size": 2839,
+    "reads": 73,
+    "writes": 84,
+    "cluster": 2
+  },
+  {
+    "file": "user_config.ini",
+    "pos": 35363,
+    "size": 4759,
+    "reads": 15,
+    "writes": 13,
+    "cluster": 0
+  },
+  {
+    "file": "user_main.c",
+    "pos": 20050,
+    "size": 4380,
+    "reads": 39,
+    "writes": 37,
+    "cluster": 1
+  },
+  {
+    "file": "user_readme.md",
+    "pos": 11096,
+    "size": 1466,
+    "reads": 93,
+    "writes": 65,
+    "cluster": 2
+  },
+  {
+    "file": "user_data.csv",
+    "pos": 40378,
+    "size": 2540,
+    "reads": 10,
+    "writes": 17,
+    "cluster": 0
+  },
+  {
+    "file": "user_script.py",
+    "pos": 24686,
+    "size": 1580,
+    "reads": 40,
+    "writes": 48,
+    "cluster": 1
+  }
+]
