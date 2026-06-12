@@ -1,98 +1,802 @@
 [
   {
-    "file": "user_kernel.sys",
+    "file": "user_file_001.sys",
     "pos": 0,
-    "size": 2647,
-    "reads": 78,
-    "writes": 93,
+    "size": 640,
+    "reads": 99,
+    "writes": 94,
     "cluster": 2
   },
   {
-    "file": "user_stdout.log",
-    "pos": 26522,
-    "size": 3935,
-    "reads": 17,
-    "writes": 3,
-    "cluster": 0
-  },
-  {
-    "file": "user_cache.db",
-    "pos": 12818,
-    "size": 3747,
-    "reads": 44,
-    "writes": 45,
-    "cluster": 1
-  },
-  {
-    "file": "user_avatar.png",
-    "pos": 2903,
-    "size": 4842,
-    "reads": 61,
-    "writes": 67,
-    "cluster": 2
-  },
-  {
-    "file": "user_index.html",
-    "pos": 30713,
-    "size": 4394,
-    "reads": 16,
-    "writes": 4,
-    "cluster": 0
-  },
-  {
-    "file": "user_report.docx",
-    "pos": 16821,
-    "size": 2973,
-    "reads": 45,
-    "writes": 29,
-    "cluster": 1
-  },
-  {
-    "file": "user_backup.bak",
-    "pos": 8001,
-    "size": 2839,
-    "reads": 73,
-    "writes": 84,
-    "cluster": 2
-  },
-  {
-    "file": "user_config.ini",
-    "pos": 35363,
-    "size": 4759,
-    "reads": 15,
+    "file": "user_file_002.log",
+    "pos": 66773,
+    "size": 883,
+    "reads": 22,
     "writes": 13,
     "cluster": 0
   },
   {
-    "file": "user_main.c",
-    "pos": 20050,
-    "size": 4380,
+    "file": "user_file_003.dat",
+    "pos": 33577,
+    "size": 823,
+    "reads": 35,
+    "writes": 34,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_004.dll",
+    "pos": 896,
+    "size": 532,
+    "reads": 65,
+    "writes": 58,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_005.bin",
+    "pos": 67912,
+    "size": 1222,
+    "reads": 20,
+    "writes": 8,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_006.cfg",
+    "pos": 34656,
+    "size": 374,
+    "reads": 37,
+    "writes": 47,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_007.tmp",
+    "pos": 1684,
+    "size": 1257,
+    "reads": 98,
+    "writes": 76,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_008.bak",
+    "pos": 69390,
+    "size": 1016,
+    "reads": 8,
+    "writes": 5,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_009.doc",
+    "pos": 35286,
+    "size": 320,
+    "reads": 31,
+    "writes": 35,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_010.txt",
+    "pos": 3197,
+    "size": 794,
+    "reads": 90,
+    "writes": 94,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_011.csv",
+    "pos": 70662,
+    "size": 462,
+    "reads": 8,
+    "writes": 3,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_012.xml",
+    "pos": 35862,
+    "size": 515,
+    "reads": 56,
+    "writes": 31,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_013.json",
+    "pos": 4247,
+    "size": 890,
+    "reads": 69,
+    "writes": 71,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_014.ini",
+    "pos": 71380,
+    "size": 1020,
+    "reads": 22,
+    "writes": 11,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_015.db",
+    "pos": 36633,
+    "size": 657,
+    "reads": 55,
+    "writes": 47,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_016.dmp",
+    "pos": 5393,
+    "size": 755,
+    "reads": 79,
+    "writes": 81,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_017.sys",
+    "pos": 72656,
+    "size": 322,
+    "reads": 23,
+    "writes": 9,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_018.log",
+    "pos": 37546,
+    "size": 505,
     "reads": 39,
+    "writes": 35,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_019.dat",
+    "pos": 6404,
+    "size": 545,
+    "reads": 98,
+    "writes": 79,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_020.dll",
+    "pos": 73234,
+    "size": 965,
+    "reads": 5,
+    "writes": 10,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_021.bin",
+    "pos": 38307,
+    "size": 677,
+    "reads": 35,
+    "writes": 39,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_022.cfg",
+    "pos": 7205,
+    "size": 302,
+    "reads": 89,
+    "writes": 55,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_023.tmp",
+    "pos": 74455,
+    "size": 426,
+    "reads": 9,
+    "writes": 4,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_024.bak",
+    "pos": 39240,
+    "size": 949,
+    "reads": 39,
+    "writes": 29,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_025.doc",
+    "pos": 7763,
+    "size": 496,
+    "reads": 60,
+    "writes": 78,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_026.txt",
+    "pos": 75137,
+    "size": 1017,
+    "reads": 24,
+    "writes": 13,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_027.csv",
+    "pos": 40445,
+    "size": 1178,
+    "reads": 57,
+    "writes": 42,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_028.xml",
+    "pos": 8515,
+    "size": 1088,
+    "reads": 67,
+    "writes": 63,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_029.json",
+    "pos": 76410,
+    "size": 943,
+    "reads": 16,
+    "writes": 12,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_030.ini",
+    "pos": 41879,
+    "size": 757,
+    "reads": 56,
+    "writes": 34,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_031.db",
+    "pos": 9859,
+    "size": 1180,
+    "reads": 88,
+    "writes": 88,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_032.dmp",
+    "pos": 77609,
+    "size": 292,
+    "reads": 18,
+    "writes": 6,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_033.sys",
+    "pos": 42892,
+    "size": 689,
+    "reads": 34,
+    "writes": 38,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_034.log",
+    "pos": 11295,
+    "size": 256,
+    "reads": 64,
+    "writes": 83,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_035.dat",
+    "pos": 78157,
+    "size": 415,
+    "reads": 22,
+    "writes": 4,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_036.dll",
+    "pos": 43837,
+    "size": 1118,
+    "reads": 43,
+    "writes": 34,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_037.bin",
+    "pos": 11807,
+    "size": 1025,
+    "reads": 74,
+    "writes": 81,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_038.cfg",
+    "pos": 78828,
+    "size": 823,
+    "reads": 21,
+    "writes": 12,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_039.tmp",
+    "pos": 45211,
+    "size": 464,
+    "reads": 45,
+    "writes": 27,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_040.bak",
+    "pos": 13088,
+    "size": 554,
+    "reads": 90,
+    "writes": 56,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_041.doc",
+    "pos": 79907,
+    "size": 748,
+    "reads": 9,
+    "writes": 12,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_042.txt",
+    "pos": 45931,
+    "size": 1271,
+    "reads": 58,
+    "writes": 38,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_043.csv",
+    "pos": 13898,
+    "size": 410,
+    "reads": 95,
+    "writes": 90,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_044.xml",
+    "pos": 80911,
+    "size": 261,
+    "reads": 14,
+    "writes": 11,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_045.json",
+    "pos": 47458,
+    "size": 257,
+    "reads": 51,
+    "writes": 45,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_046.ini",
+    "pos": 14564,
+    "size": 990,
+    "reads": 91,
+    "writes": 69,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_047.db",
+    "pos": 81428,
+    "size": 940,
+    "reads": 24,
+    "writes": 8,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_048.dmp",
+    "pos": 47971,
+    "size": 430,
+    "reads": 37,
+    "writes": 49,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_049.sys",
+    "pos": 15810,
+    "size": 523,
+    "reads": 66,
+    "writes": 76,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_050.log",
+    "pos": 82624,
+    "size": 967,
+    "reads": 9,
+    "writes": 10,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_051.dat",
+    "pos": 48657,
+    "size": 1266,
+    "reads": 30,
+    "writes": 47,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_052.dll",
+    "pos": 16589,
+    "size": 799,
+    "reads": 70,
+    "writes": 85,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_053.bin",
+    "pos": 83847,
+    "size": 1048,
+    "reads": 5,
+    "writes": 12,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_054.cfg",
+    "pos": 50179,
+    "size": 720,
+    "reads": 34,
+    "writes": 40,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_055.tmp",
+    "pos": 17644,
+    "size": 1177,
+    "reads": 73,
+    "writes": 86,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_056.bak",
+    "pos": 85151,
+    "size": 663,
+    "reads": 8,
+    "writes": 16,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_057.doc",
+    "pos": 51155,
+    "size": 885,
+    "reads": 43,
+    "writes": 47,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_058.txt",
+    "pos": 19077,
+    "size": 342,
+    "reads": 92,
+    "writes": 57,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_059.csv",
+    "pos": 86070,
+    "size": 1039,
+    "reads": 11,
+    "writes": 14,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_060.xml",
+    "pos": 52296,
+    "size": 915,
+    "reads": 49,
+    "writes": 25,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_061.json",
+    "pos": 19675,
+    "size": 686,
+    "reads": 79,
+    "writes": 60,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_062.ini",
+    "pos": 87365,
+    "size": 503,
+    "reads": 9,
+    "writes": 4,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_063.db",
+    "pos": 53467,
+    "size": 768,
+    "reads": 35,
     "writes": 37,
     "cluster": 1
   },
   {
-    "file": "user_readme.md",
-    "pos": 11096,
-    "size": 1466,
-    "reads": 93,
-    "writes": 65,
+    "file": "user_file_064.dmp",
+    "pos": 20617,
+    "size": 975,
+    "reads": 66,
+    "writes": 62,
     "cluster": 2
   },
   {
-    "file": "user_data.csv",
-    "pos": 40378,
-    "size": 2540,
-    "reads": 10,
+    "file": "user_file_065.sys",
+    "pos": 88124,
+    "size": 658,
+    "reads": 8,
+    "writes": 3,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_066.log",
+    "pos": 54491,
+    "size": 398,
+    "reads": 44,
+    "writes": 42,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_067.dat",
+    "pos": 21848,
+    "size": 857,
+    "reads": 99,
+    "writes": 77,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_068.dll",
+    "pos": 89038,
+    "size": 841,
+    "reads": 7,
+    "writes": 13,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_069.bin",
+    "pos": 55145,
+    "size": 556,
+    "reads": 46,
+    "writes": 41,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_070.cfg",
+    "pos": 22961,
+    "size": 825,
+    "reads": 95,
+    "writes": 57,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_071.tmp",
+    "pos": 90135,
+    "size": 327,
+    "reads": 6,
     "writes": 17,
     "cluster": 0
   },
   {
-    "file": "user_script.py",
-    "pos": 24686,
-    "size": 1580,
-    "reads": 40,
+    "file": "user_file_072.bak",
+    "pos": 55957,
+    "size": 1085,
+    "reads": 58,
+    "writes": 37,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_073.doc",
+    "pos": 24042,
+    "size": 714,
+    "reads": 69,
+    "writes": 89,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_074.txt",
+    "pos": 90718,
+    "size": 1110,
+    "reads": 20,
+    "writes": 3,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_075.csv",
+    "pos": 57298,
+    "size": 824,
+    "reads": 58,
+    "writes": 33,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_076.xml",
+    "pos": 25012,
+    "size": 809,
+    "reads": 73,
+    "writes": 93,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_077.json",
+    "pos": 92084,
+    "size": 1016,
+    "reads": 16,
+    "writes": 9,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_078.ini",
+    "pos": 58378,
+    "size": 1152,
+    "reads": 33,
+    "writes": 43,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_079.db",
+    "pos": 26077,
+    "size": 472,
+    "reads": 86,
+    "writes": 78,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_080.dmp",
+    "pos": 93356,
+    "size": 713,
+    "reads": 22,
+    "writes": 17,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_081.sys",
+    "pos": 59786,
+    "size": 901,
+    "reads": 53,
+    "writes": 34,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_082.log",
+    "pos": 26805,
+    "size": 405,
+    "reads": 95,
+    "writes": 50,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_083.dat",
+    "pos": 94325,
+    "size": 1044,
+    "reads": 15,
+    "writes": 16,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_084.dll",
+    "pos": 60943,
+    "size": 1051,
+    "reads": 45,
+    "writes": 36,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_085.bin",
+    "pos": 27466,
+    "size": 380,
+    "reads": 78,
+    "writes": 69,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_086.cfg",
+    "pos": 95625,
+    "size": 947,
+    "reads": 21,
+    "writes": 8,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_087.tmp",
+    "pos": 62250,
+    "size": 793,
+    "reads": 57,
     "writes": 48,
     "cluster": 1
+  },
+  {
+    "file": "user_file_088.bak",
+    "pos": 28102,
+    "size": 603,
+    "reads": 93,
+    "writes": 87,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_089.doc",
+    "pos": 96828,
+    "size": 1067,
+    "reads": 20,
+    "writes": 17,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_090.txt",
+    "pos": 63299,
+    "size": 309,
+    "reads": 56,
+    "writes": 32,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_091.csv",
+    "pos": 28961,
+    "size": 597,
+    "reads": 70,
+    "writes": 67,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_092.xml",
+    "pos": 98151,
+    "size": 775,
+    "reads": 20,
+    "writes": 4,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_093.json",
+    "pos": 63864,
+    "size": 1055,
+    "reads": 45,
+    "writes": 45,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_094.ini",
+    "pos": 29814,
+    "size": 698,
+    "reads": 78,
+    "writes": 60,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_095.db",
+    "pos": 99182,
+    "size": 884,
+    "reads": 7,
+    "writes": 11,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_096.dmp",
+    "pos": 65175,
+    "size": 475,
+    "reads": 38,
+    "writes": 35,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_097.sys",
+    "pos": 30768,
+    "size": 1060,
+    "reads": 78,
+    "writes": 75,
+    "cluster": 2
+  },
+  {
+    "file": "user_file_098.log",
+    "pos": 100322,
+    "size": 797,
+    "reads": 22,
+    "writes": 10,
+    "cluster": 0
+  },
+  {
+    "file": "user_file_099.dat",
+    "pos": 65906,
+    "size": 611,
+    "reads": 48,
+    "writes": 41,
+    "cluster": 1
+  },
+  {
+    "file": "user_file_100.dll",
+    "pos": 32084,
+    "size": 1237,
+    "reads": 68,
+    "writes": 86,
+    "cluster": 2
   }
 ]
